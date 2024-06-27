@@ -1,0 +1,30 @@
+
+Travail à faire:
+
+1- Trouver période de travail entre deux date
+
+2- Trouver nombre de mois travaillé de chaque période
+
+3- Trouver nombre de jours acquis de chaque période = Nombre de mois * 2.5
+
+4- Trouver le salaire brut de chaque mois dans chaque période:
+	On a comme paramètre date_debut, date_fin, salaire (qui est le salaire brut mensuel).
+	=> Si on a travaillé dans un mois complet (le premier du mois jusqu'à la fin du mois), on perçoit le salaire brut. Donc salaire mensuel = salaire brut mensuel
+	=> Si on a travaillé dans un mois incomplet, on procède comme suit:
+    		- si le premier mois est incomplète (on a commencé au date_debut jusqu'au fin du mois). Donc salaire mensuel = (salaire brut mensuel * (Nombre de jour par mois du mois - jour debut)) / nombre de jour par mois du mois
+    		- si le dernier mois est incomplète (on a commencé au 1er du mois jusqu'à date_fin). Donc salaire mensuel = (salaire brut mensuel * jour fin) / nombre de jour par mois du mois
+
+5- Trouver la valeur monétaire de chaque période, en prenant le max entre:
+	- methode maintien de salaire = (Salaire mensuel brut * Nombre de jour acquis) / 22
+	- methode 10% = Totale somme salaire période(n) * 0.1
+
+6- Afficher le paiement de congé de chaques mois de chaque période:
+Il y a trois méthode (on prend "i" comme compteur de période, avec i = 1 initialement):
+	* Paiement intégrale en Juin:
+		- Tout les mois sur periode(i) = 0
+		- if (mois = Juin) -> début de mois pour periode(i+1) = Valeur monétaire de periode(i)
+	* Paiement par douzieme:
+		- Tout les mois sur periode(i) = 0
+		- Tout les mois sur periode(i+1) = Valeur monétaire de periode(i) / 12
+	* Paiement par dix_pourcent:
+		- Tout les mois du période = Salaire mensuel brut / 10
